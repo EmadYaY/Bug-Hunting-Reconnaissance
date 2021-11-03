@@ -1,4 +1,4 @@
-# Reconnaissance-of-Bug-Hunting
+# Bug Hunting Reconnaissance
 A collection of tools I use while doing recon and bug hunting.
 
 ## Methodologies
