@@ -26,6 +26,6 @@ Service Scanning and Brute Forcing
 
 ```
 ~# cat dns.log | grep -vE '[a-zA-Z=]' |  sort -u  | tail -n +2 > ips.txt
-~# rustscan -a ips.txt --scan-order random -- -sCV -oG port-scan
-~# brutespray -f port-scan 
+~# masscan -p1-65535 -iL ips.txt --max-rate 1800 -oX masscan-report
+~# brutespray -f masscan-report
 ```
