@@ -15,7 +15,17 @@
  
  ### Port Scanning
  
- masscan
- dnmasscan
- nmap
- brutespray
+ 
+ masscan OR dnmasscan
+ 
+ ```~# masscan -p1-65535 -iL ipFile.txt --max-rate 1800 -oG outPutFile.log```
+ 
+ ```~# dnmasscan domains.txt dns.log [-p1-65535 -oG scan.log]```
+ 
+Service Scanning and Brute Forcing
+
+```
+~# cat dns.log | grep -vE '[a-zA-Z=]' |  sort -u  | tail -n +2 > ips.txt
+~# rustscan -a ips.txt --scan-order random -- -sCV -oG port-scan
+~# brutespray -f port-scan 
+```
