@@ -1,11 +1,11 @@
-### TLDs Recon
+## TLDs Recon
  ```
  ~# ./tld_scanner.py -s -n -f -d SITE -m plain -o site-tld.txt
  ```
  ```
  ~# assetfinder [--subs-only] <DOMAIN>
  ```
- ### ASN Enumeration
+## ASN Enumeration
  
  ```
  ~# ./asnlookup.py -o 'ORG'
@@ -13,7 +13,13 @@
  
  Using Hurricane Electric's [website](https://bgp.he.net/).
  
- ### Port Scanning
+ ## OSINT 
+ ### Shodan Cheat Sheet
+ `org:"example" http.favicon.hash:1111111`
+ 
+ `ssl:"example" 200`
+ 
+ ## Port Scanning
  
  
  masscan OR dnmasscan
@@ -22,7 +28,7 @@
  
  ```~# dnmasscan domains.txt dns.log [-p1-65535 -oG scan.log]```
  
-Service Scanning and Brute Forcing
+##Service Scanning and Brute Forcing
 
 ```bash
 cat dns.log | grep -vE '[a-zA-Z=]' |  sort -u  | tail -n +2 > ips.txt;
