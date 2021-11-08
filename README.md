@@ -44,3 +44,12 @@ In this phase we will try to probe for alive domains and identify quickly what t
 * Wfuzz
 * BruteSpray
 * DirSearch
+
+### Helpful Websites
+
+* [Bug Bounty Helper](dorks.faisalahmed.me/)
+* [SecurityTrails](https://securitytrails.com/)
+* [HTML Escape Encoding](https://tools.w3cub.com/html-escape-unescape)
+* [CSRF Generator](https://security.love/CSRF-PoC-Genorator/)
+* [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
+* [JS Deobfuscator](https://deobfuscate.io/)
