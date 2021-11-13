@@ -37,3 +37,7 @@ split -l 2 ../ips.txt IPs-;
 for file in $( ls ); do masscan -p1-65535 -iL $file --max-rate 1800 -oX masscan-report-$file; echo "Port scanning $file file of `basename $PWD` is done." | notify --silent; done; 
 for file in $( ls | grep "masscan-report" ); do brutespray -f $file; done; echo "Completed brute forcing default credentials against `basename $PWD`." | notify --silent
 ```
+
+### XSS Hunting
+
+[XSSoter](/Bug-Hunting-Reconnaissance/XSSoter.sh)
