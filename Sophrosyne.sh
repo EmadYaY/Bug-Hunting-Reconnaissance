@@ -3,6 +3,7 @@
 ##########################################################################
 #######! You can do a for loop to iterate upon a list of domains: !#######
 ###! for domain in $(cat rootdomains); do sophrosyne.sh $domain; done !###
+################ You need to install 'anew' by tomnomnom #################
 ##########################################################################
 
 crtsh(){
@@ -26,7 +27,7 @@ crtsh(){
     curl -s https://crt.sh/?q=%25.$1 > /tmp/curl.out
     cat /tmp/curl.out | grep $1 | grep TD | sed -e 's/\*\.//g' | sed -e 's/>//g' | sed -e 's/TD//g' | sed -e 's/\///g' | sed -e 's/ //g' | sed -n '1!p' | sed -e 's/BR/\n/g' | sort -u > $1-crt.txt
     cat $1-crt.txt
-    echo -e "$OKRED [+] Domains saved to: $1-crt.txt"
+    echo -e "$OKRED [+] Domains saved to: rootdomains.txt"
     echo -e "$OKRED +----------------------=[Done!]=---------------------+$RESET" 
 }
 
