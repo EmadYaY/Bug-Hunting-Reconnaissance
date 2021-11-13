@@ -22,12 +22,12 @@ crtsh(){
       echo -e "$OKRED [-] Usage: Sophrosyne.sh <target>$RESET"
       exit
     fi
-    echo -e "$OKRED + -- ----------------------------=[Gathering Certificate Subdomains]=-------- -- +$RESET"
+    echo -e "$OKRED +----------=[Gathering Certificate Subdomains]=---------+$RESET"
     curl -s https://crt.sh/?q=%25.$1 > /tmp/curl.out
     cat /tmp/curl.out | grep $1 | grep TD | sed -e 's/\*\.//g' | sed -e 's/>//g' | sed -e 's/TD//g' | sed -e 's/\///g' | sed -e 's/ //g' | sed -n '1!p' | sed -e 's/BR/\n/g' | sort -u > $1-crt.txt
     cat $1-crt.txt
     echo -e "$OKRED [+] Domains saved to: $1-crt.txt"
-    echo -e "$OKRED + -- ----------------------------=[Done!]=----------------------------------- -- +$RESET" 
+    echo -e "$OKRED +----------------------=[Done!]=---------------------+$RESET" 
 }
 
 sophrosyne(){
