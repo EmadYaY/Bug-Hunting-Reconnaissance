@@ -1,5 +1,10 @@
 #!/bin/bash
 
+##########################################################################
+#######! You can do a for loop to iterate upon a list of domains: !#######
+###! for domain in $(cat rootdomains); do sophrosyne.sh $domain; done !###
+##########################################################################
+
 crtsh(){
     OKBLUE='\033[94m'
     OKRED='\033[91m'
@@ -8,7 +13,7 @@ crtsh(){
     RESET='\e[0m'
     TARGET="$1"
 
-    if [ -z $TARGET ]; then
+    if [ -z $1 ]; then
       echo -e "$OKRED            _         _     $RESET"
       echo -e "$OKRED   ___ _ __| |_   ___| |__  $RESET"
       echo -e "$OKRED  / __| '__| __| / __| '_ \ $RESET"
@@ -21,7 +26,7 @@ crtsh(){
       exit
     fi
 
-    if [[ $TARGET = "--help" ]]; then
+    if [[ $1 = "--help" ]]; then
       echo -e "$OKRED            _         _     $RESET"
       echo -e "$OKRED   ___ _ __| |_   ___| |__  $RESET"
       echo -e "$OKRED  / __| '__| __| / __| '_ \ $RESET"
@@ -39,19 +44,21 @@ crtsh(){
     echo -e "$OKRED  \___|_|   \__(_)___/_| |_|$RESET"
     echo ""
     echo -e "$OKRED + -- ----------------------------=[Gathering Certificate Subdomains]=-------- -- +$RESET"
-    curl -s https://crt.sh/?q=%25.$TARGET > /tmp/curl.out
-    cat /tmp/curl.out | grep $TARGET | grep TD | sed -e 's/\*\.//g' | sed -e 's/>//g' | sed -e 's/TD//g' | sed -e 's/\///g' | sed -e 's/ //g' | sed -n '1!p' | sed -e 's/BR/\n/g' | sort -u > $TARGET-crt.txt
-    cat $TARGET-crt.txt
-    echo -e "$OKRED [+] Domains saved to: $TARGET-crt.txt"
+    curl -s https://crt.sh/?q=%25.$1 > /tmp/curl.out
+    cat /tmp/curl.out | grep $1 | grep TD | sed -e 's/\*\.//g' | sed -e 's/>//g' | sed -e 's/TD//g' | sed -e 's/\///g' | sed -e 's/ //g' | sed -n '1!p' | sed -e 's/BR/\n/g' | sort -u > $1-crt.txt
+    cat $1-crt.txt
+    echo -e "$OKRED [+] Domains saved to: $1-crt.txt"
     echo -e "$OKRED + -- ----------------------------=[Done!]=----------------------------------- -- +$RESET" 
 }
 
 sophrosyne(){
     mkdir crt && cd crt
-    bash crtsh $1
+    crtsh $1
     cat * | anew ../rootdomains
     cd ../
     rm -rf crt
     sed -r 's/<//g' rootdomains | grep -v '@' | sort -u > temp; mv temp rootdomains
     grep -Ev '\.com[a-zA-Z]' rootdomains > temp; mv temp rootdomains
 }
+
+sophrosyne $1
