@@ -40,4 +40,4 @@ for file in $( ls | grep "masscan-report" ); do brutespray -f $file; done; echo 
 
 ### XSS Hunting
 
-[XSSoter](/Bug-Hunting-Reconnaissance/XSSoter.sh)
+[XSSoter](XSSoter.sh)
