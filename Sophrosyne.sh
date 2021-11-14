@@ -6,6 +6,11 @@
 ################ You need to install 'anew' by tomnomnom #################
 ##########################################################################
 
+if [[ $# -eq 0 ]] ; then
+    echo "Usage: ${0##*/} <DOMAIN>"
+    exit 1
+fi
+
 crtsh(){
     OKBLUE='\033[94m'
     OKRED='\033[91m'
