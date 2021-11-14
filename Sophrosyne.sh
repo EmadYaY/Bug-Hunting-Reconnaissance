@@ -7,33 +7,23 @@
 ##########################################################################
 
 if [[ $# -eq 0 ]] ; then
-    echo "Usage: ${0##*/} <DOMAIN>"
+    echo -e "$OKRED [!] Usage: ${0##*/} <DOMAIN>"
     exit 1
 fi
 
 crtsh(){
-    OKBLUE='\033[94m'
-    OKRED='\033[91m'
-    OKGREEN='\033[92m'
-    OKORANGE='\033[93m'
+    BLUE='\033[94m'
+    RED='\033[91m'
+    GREEN='\033[92m'
+    ORANGE='\033[93m'
     RESET='\e[0m'
-    TARGET="$1"
 
-    if [ -z $1 ]; then
-      echo -e "$OKRED [-] Usage: Sophrosyne.sh <target>$RESET"
-      exit
-    fi
-
-    if [[ $1 = "--help" ]]; then
-      echo -e "$OKRED [-] Usage: Sophrosyne.sh <target>$RESET"
-      exit
-    fi
-    echo -e "$OKRED +----------=[Gathering Certificate Subdomains]=---------+$RESET"
+    echo -e "$RED [-] Gathering Certificate Subdomains..."
     curl -s https://crt.sh/?q=%25.$1 > /tmp/curl.out
-    cat /tmp/curl.out | grep $1 | grep TD | sed -e 's/\*\.//g' | sed -e 's/>//g' | sed -e 's/TD//g' | sed -e 's/\///g' | sed -e 's/ //g' | sed -n '1!p' | sed -e 's/BR/\n/g' | sort -u > $1-crt.txt
+    cat /tmp/curl.out | grep $1 | grep TD | sed -e 's/\*\.//g' | sed -e 's/>//g' | sed -e 's/TD//g' | sed -e 's/\///g' | sed -e 's/ //g' | sed -n '1!p' | sed -e 's/BR/\n/g' | sed -r 's/<//g' | grep -v '@' | sort -u > $1-crt.txt
     cat $1-crt.txt
-    echo -e "$OKRED [+] Domains saved to: rootdomains.txt"
-    echo -e "$OKRED +----------------------=[Done!]=---------------------+$RESET" 
+    echo -e "$GREEN [+] Domains saved to: rootdomains.txt"
+    echo -e "$GREEN [-] Done!" 
 }
 
 sophrosyne(){
@@ -42,7 +32,6 @@ sophrosyne(){
     cat * | anew ../rootdomains
     cd ../
     rm -rf crt
-    sed -r 's/<//g' rootdomains | grep -v '@' | sort -u > temp; mv temp rootdomains
     grep -Ev '\.com[a-zA-Z]' rootdomains > temp; mv temp rootdomains
 }
 
