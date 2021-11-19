@@ -35,15 +35,29 @@ In this phase we will try to probe for alive domains and identify quickly what t
 ### Port Scanning
 
 * Masscan
-* NMap
-
+* Nmap
+* Naabu
+* RustScan
 
 ### Fuzzing / Brute Forcing
 
 * FFuF
 * Wfuzz
-* BruteSpray
 * DirSearch
+* BruteSpray
+
+### JavaScript Files Enumeration (and Broken Link Hijacking)
+
+* [JSFscan](https://github.com/KathanP19/JSFScan.sh)
+* [SecretFinder](https://github.com/m4ll0k/SecretFinder)
+* [Nemesis](https://github.com/machinexa2/Nemesis)
+* [BrokenLinkHijacker](https://github.com/MayankPandey01/BrokenLinkHijacker)
+
+### GitHub Dorking
+
+* [Gtleaks](https://github.com/zricethezav/gitleaks)
+* [Gt-hound](https://github.com/tillson/git-hound)
+* [GitRob](https://github.com/michenriksen/gitrob)
 
 ### Helpful Websites
 
