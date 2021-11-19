@@ -30,6 +30,7 @@ In this phase we will try to probe for alive domains and identify quickly what t
 * HTTProbe
 * EyeWitness
 * Aquatone
+* GoWitness
 * HTTPScreenshot
 
 ### Port Scanning
@@ -67,3 +68,5 @@ In this phase we will try to probe for alive domains and identify quickly what t
 * [CSRF Generator](https://security.love/CSRF-PoC-Genorator/)
 * [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
 * [JS Deobfuscator](https://deobfuscate.io/)
+* [InfosecWriteups](https://infosecwriteups.com/)
+* [PentesterLand](https://pentester.land/list-of-bug-bounty-writeups.html)
