@@ -56,8 +56,8 @@ In this phase we will try to probe for alive domains and identify quickly what t
 
 ### GitHub Dorking
 
-* [Gtleaks](https://github.com/zricethezav/gitleaks)
-* [Gt-hound](https://github.com/tillson/git-hound)
+* [Gitleaks](https://github.com/zricethezav/gitleaks)
+* [Git-hound](https://github.com/tillson/git-hound)
 * [GitRob](https://github.com/michenriksen/gitrob)
 
 ### Helpful Websites
