@@ -5,6 +5,7 @@
 ### - anew        ###
 ### - ParamSpider ###
 ### - Dalfox      ###
+### - Gxss        ###
 #####################
 
 if [[ $# -eq 0 ]] ; then
